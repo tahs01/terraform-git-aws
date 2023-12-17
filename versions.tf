@@ -1,9 +1,8 @@
 terraform {
 
   cloud {
-    organization = "eks_on_aws"
     workspaces {
-      name = "terraform-git-aws"
+      name = "learn-terraform-eks"
     }
   }
 
@@ -11,11 +10,6 @@ terraform {
     aws = {
       source  = "hashicorp/aws"
       version = "~> 5.7.0"
-    }
-
-    kubectl = {
-      source  = "gavinbunney/kubectl"
-      version = ">= 1.7.0"
     }
 
     random = {
