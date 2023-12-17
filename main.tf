@@ -47,7 +47,7 @@ module "vpc" {
   }
 
   # Ensure that public subnets have auto-assign public IP enabled
-  public_subnet_auto_assign_ip = true
+  # public_subnet_auto_assign_ip = true
 }
 
 module "eks" {
