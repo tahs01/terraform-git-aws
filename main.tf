@@ -10,6 +10,7 @@ module "vpc" {
 module "eks_cluster" {
 source          = "terraform-aws-modules/eks/aws"
 cluster_name    = "my-eks-cluster"
+version         = "2.0.0"
 subnets         = module.vpc.public_subnets  # Replace with your subnet IDs
 vpc_id          = module.vpc.vpc_id          # Replace with your VPC ID
 cluster_version = "1.21"                     # Set your desired Kubernetes version
