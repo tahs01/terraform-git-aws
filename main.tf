@@ -82,7 +82,7 @@ resource "aws_eks_addon" "ebs-csi" {
   }
 }
 
-resource "kubectl_manifest" "deployment" {
-  yaml_body = file("todoap-deployment.yaml")
-  depends_on = [module.eks]
-}
+# resource "kubectl_manifest" "deployment" {
+#   yaml_body = file("todoap-deployment.yaml")
+#   depends_on = [module.eks]
+# }
