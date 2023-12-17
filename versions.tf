@@ -35,7 +35,3 @@ terraform {
 
   required_version = "~> 1.3"
 }
-
-provider "kubectl" {
-  version = "~> 1.0"
-}
