@@ -83,9 +83,10 @@ resource "aws_eks_addon" "ebs-csi" {
 }
 
 provider "kubectl" {
+  config_path = module.eks.kubeconfig_path
 }
 
 resource "kubectl_manifest" "deployment" {
-  yaml_body = file("todoap-deployment.yaml")
+  yaml_body = file("todapp-deployment.yaml")
   depends_on = [module.eks]
 }
