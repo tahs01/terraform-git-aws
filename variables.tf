@@ -32,4 +32,4 @@ variable "aws_region" {
 #   description = "name of cluster"
 #   type        = string
 #   default     = "tahs_eks_cluster"
-}
+# }
