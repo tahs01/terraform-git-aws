@@ -84,7 +84,6 @@ resource "aws_eks_addon" "ebs-csi" {
 
 provider "kubectl" {
   config_path = module.eks.kubeconfig_path
-  version = "~> 1.0"
 }
 
 resource "kubectl_manifest" "deployment" {
