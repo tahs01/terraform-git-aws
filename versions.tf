@@ -10,3 +10,16 @@ terraform {
 provider "aws" {
   region  = var.aws_region
 }
+
+terraform {
+  required_providers {
+    kubectl = {
+      source = "gavinbunney/kubectl"
+      version = "1.14.0"
+    }
+  }
+}
+
+provider "kubectl" {
+config_path = module.eks_cluster.kubeconfig_path
+}
