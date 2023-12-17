@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "us-west-2"  # Set your desired AWS region
+  region = "us-east-2"  # Set your desired AWS region
 }
 
 module "vpc" {
