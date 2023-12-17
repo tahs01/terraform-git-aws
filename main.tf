@@ -83,7 +83,7 @@ resource "aws_eks_addon" "ebs-csi" {
 }
 
 provider "kubectl" {
-  config_path = module.eks.kubeconfig_path
+  apply_retry_count = 15
 }
 
 resource "kubectl_manifest" "deployment" {
