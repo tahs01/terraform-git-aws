@@ -87,6 +87,6 @@ provider "kubectl" {
 }
 
 resource "kubectl_manifest" "deployment" {
-  yaml_body = file("todapp-deployment.yaml")
+  yaml_body = file("todoapp-deployment.yaml")
   depends_on = [module.eks]
 }
