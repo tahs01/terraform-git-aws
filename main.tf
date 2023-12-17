@@ -12,7 +12,7 @@ module "vpc" {
 }
 
 locals {
-  cluster_name = "education-eks-${random_string.suffix.result}"
+  cluster_name = "tahs-eks"
 }
 
 module "eks" {
