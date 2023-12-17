@@ -1,8 +1,9 @@
 terraform {
 
   cloud {
+    organization = "eks_on_aws"
     workspaces {
-      name = "learn-terraform-eks"
+      name = "terraform-git-aws"
     }
   }
 
