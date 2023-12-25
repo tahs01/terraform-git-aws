@@ -83,9 +83,45 @@ provider "kubectl" {
 }
 
 resource "kubectl_manifest" "deployment" {
-  yaml_body   = file("todoapp-deployment.yaml")
+  yaml_body   = <<YAML
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: htmlapp-deployment
+  labels:
+    app: htmlapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: htmlapp
+  template:
+    metadata:
+      labels:
+        app: htmlapp 
+    spec:
+      containers:
+      - name: htmlserver
+        image: tahs01/todoapp-html:latest
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: htmlapp-service
+spec:
+  selector:
+    app: htmlapp 
+  type: LoadBalancer
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+    nodePort: 31110
+YAML
   depends_on  = [module.eks]
-  provisioner "local-exec" {
-    command = "kubectl rollout restart deployment todoapp -n todoapp-ns"  # Replace <namespace> with your actual namespace
-  }
+  # provisioner "local-exec" {
+  #   command = "kubectl rollout restart deployment todoapp -n todoapp-ns"  # Replace <namespace> with your actual namespace
+  # }
 }
